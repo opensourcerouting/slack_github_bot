@@ -23,8 +23,8 @@ class Client
     @client = Slack::Web::Client.new
   end
 
-  def chat(message)
-    @client.chat_postMessage(channel: fetch_channel, text: message, username: fetch_bot_name)
+  def chat(message, channel: fetch_channel)
+    @client.chat_postMessage(channel: channel, text: message, username: fetch_bot_name)
   rescue Slack::Web::Api::Errors::TooManyRequestsError
     sleep 60
     retry
@@ -37,6 +37,6 @@ class Client
   end
 
   def fetch_bot_name
-    ENV.fetch('BOT_NAME', 'Trish')
+    ENV.fetch('BOT_NAME', 'Warden')
   end
 end

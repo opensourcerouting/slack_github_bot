@@ -19,6 +19,38 @@ class Server < Sinatra::Base
     halt 200
   end
 
+  post '/comment' do
+    halt 401, 'Invalid user / password' unless authentication
+    Client.new.chat(request.body.read)
+
+    halt 200
+  end
+
+  post '/user' do
+    halt 401, 'Invalid user / password' unless authentication
+
+    payload = JSON.parse(request.body.read)
+
+    Client.new.chat(payload['message'], channel: payload['slack_user_id'])
+
+    halt 200
+  end
+
+
+  private
+
+  def basic_encode(username, password)
+    "Basic #{["#{username}:#{password}"].pack('m0')}"
+  end
+
+  def authentication
+    if basic_encode(ENV.fetch('HTTP_USER', nil), ENV.fetch('HTTP_PASS', nil)) != request.env['HTTP_AUTHORIZATION']
+      return false
+    end
+
+    true
+  end
+
   # :nocov:
   run! if __FILE__ == $PROGRAM_NAME
   # :nocov:
