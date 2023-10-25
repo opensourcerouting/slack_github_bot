@@ -50,9 +50,9 @@ module Slack
             slack_user_id: @user_id
           }
 
-        request(payload)
+        resp = request('/slack', payload)
 
-        'ok'
+        !resp.nil? and resp.code.to_i == 200 ? resp.body : 'Internal error'
       end
 
       def subscribe
@@ -67,9 +67,9 @@ module Slack
             slack_user_id: @user_id
           }
 
-        request(payload)
+        resp = request('/slack', payload)
 
-        'ok'
+        !resp.nil? and resp.code.to_i == 200 ? resp.body : 'Internal error'
       end
 
       def settings
@@ -79,13 +79,13 @@ module Slack
             slack_user_id: @user_id
           }
 
-        resp = request(payload)
+        resp = request('/slack/settings', payload)
 
         !resp.nil? and resp.code.to_i == 200 ? resp.body : 'Error accessing your configuration'
       end
 
-      def request(payload)
-        post_request(URI("#{ENV.fetch('HTTP_URL', nil)}/slack/settings"), body: payload)
+      def request(url, payload)
+        post_request(URI("#{ENV.fetch('HTTP_URL', nil)}/#{url}"), body: payload)
       end
     end
   end
