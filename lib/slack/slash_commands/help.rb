@@ -32,7 +32,6 @@ SlackRubyBotServer::Events.configure do |config|
 		pass: Just successful runs
 		off: Disable notifications
 	Similar to notify, but for all CI runs for that specific Github User
-	Subscribe to multiple github_names is possible for each
 
 	Example:
 		/ci subscribe mwinter-osr all
