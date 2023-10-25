@@ -27,8 +27,8 @@ gem 'rubocop', group: %i[development test]
 gem 'rubocop-performance', group: %i[development test]
 
 gem 'sinatra', '2.0.8.1'
-gem 'slack-ruby-client'
 gem 'slack-ruby-bot-server-events'
+gem 'slack-ruby-client'
 
 group :test do
   gem 'factory_bot'

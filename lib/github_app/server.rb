@@ -36,7 +36,6 @@ class Server < Sinatra::Base
     halt 200
   end
 
-
   private
 
   def basic_encode(username, password)

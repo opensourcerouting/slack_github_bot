@@ -11,7 +11,7 @@
 class Client
   def initialize
     Slack.configure do |config|
-      config.token ||= ENV['SLACK_BOT_TOKEN']
+      config.token ||= ENV.fetch('SLACK_BOT_TOKEN', nil)
     end
 
     Slack::Web::Client.configure do |config|

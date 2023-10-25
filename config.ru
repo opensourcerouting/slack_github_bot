@@ -12,6 +12,4 @@ require 'puma'
 require './lib/slack_bot_app'
 require_relative 'config/initializers/active_record_established'
 
-
-
 run Rack::URLMap.new('/' => SlackRubyBotServer::Api::Middleware.instance, '/github' => Server)
