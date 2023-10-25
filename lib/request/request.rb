@@ -8,7 +8,7 @@
 #
 #  frozen_string_literal: true
 
-module SlackBoot
+module SlackBot
   module Request
     def get_request(uri)
       user, passwd = fetch_user_pass

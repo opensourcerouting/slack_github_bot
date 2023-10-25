@@ -15,10 +15,11 @@ require 'json'
 
 require_relative '../lib/github_app/server'
 
+require_relative '../lib/request/request'
+
 require_relative '../lib/slack/client'
-require_relative '../lib/slack/events/default'
 require_relative '../lib/slack/slash_commands/default'
 require_relative '../lib/slack/slash_commands/ping'
-require_relative '../lib/slack/slash_commands/subscribe'
-
-require_relative '../lib/request/request'
+require_relative '../lib/slack/slash_commands/ci'
+require_relative '../lib/slack/slash_commands/help'
+require_relative '../lib/slack/slash_commands/bamboo_ci/command'
