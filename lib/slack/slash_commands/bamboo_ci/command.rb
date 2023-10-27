@@ -55,6 +55,7 @@ module Slack
 
       def subscribe
         return 'GitHub name must be fill' if @param.nil? or @param.empty?
+        return 'Invalid GitHub username' if @param.match?(/^\d+$/)
         return "Opts must be #{NOTIFY_OPTS.join(',')}" if (@opts.nil? or @opts.empty?) or !NOTIFY_OPTS.include? @opts
 
         payload =
