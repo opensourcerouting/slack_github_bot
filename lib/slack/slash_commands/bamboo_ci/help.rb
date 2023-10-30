@@ -11,8 +11,7 @@
 module Slack
   module BambooCi
     class Help
-      def self.text
-        '
+      TEXT = '
 /ci notify <pr> [all | errors | pass | off]
 		<pr> is the PR number (or * for the off option)
 		all: All finished runs
@@ -52,6 +51,9 @@ module Slack
 /ci help
 	(i.e this)
 '
+
+      def self.text
+        TEXT
       end
     end
   end
