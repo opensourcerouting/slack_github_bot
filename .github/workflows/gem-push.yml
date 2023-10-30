@@ -1,0 +1,29 @@
+name: Ruby
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master", "develop" ]
+
+permissions:
+  contents: read
+
+jobs:
+  rubocop:
+    name: Rubocop
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.0
+
+      - name: rubocop
+        uses: reviewdog/action-rubocop@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          rubocop_version: gemfile
+          reporter: github-pr-check
