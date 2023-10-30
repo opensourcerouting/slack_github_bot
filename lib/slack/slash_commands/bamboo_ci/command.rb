@@ -31,8 +31,10 @@ module Slack
           subscribe
         when 'settings'
           settings
+        when 'help'
+          Slack::BambooCi::Help.text
         else
-          "Invalid command - #{@command}"
+          'Invalid command please use `/ci help` to check supported commands'
         end
       end
 

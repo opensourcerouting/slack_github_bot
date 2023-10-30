@@ -8,9 +8,11 @@
 #
 # frozen_string_literal: true
 
-SlackRubyBotServer::Events.configure do |config|
-  config.on :command, '/help' do
-    message = '
+module Slack
+  module BambooCi
+    class Help
+      def self.text
+        '
 /ci notify <pr> [all | errors | pass | off]
 		<pr> is the PR number (or * for the off option)
 		all: All finished runs
@@ -47,9 +49,10 @@ SlackRubyBotServer::Events.configure do |config|
 		Enabled notification for PR 6 when it passes
 		Subscribed to status of all PRs by Github User mwinter-osr
 
-/help
+/ci help
 	(i.e this)
 '
-    { text: message }
+      end
+    end
   end
 end
