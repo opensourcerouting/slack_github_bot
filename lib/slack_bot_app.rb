@@ -10,6 +10,8 @@
 
 require 'dotenv'
 require 'rack/show_exceptions'
+require 'rubygems'
+require 'bundler'
 
 Dotenv.load
 Bundler.require

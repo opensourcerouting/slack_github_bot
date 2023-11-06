@@ -14,20 +14,23 @@ gem 'activerecord', require: 'active_record'
 
 gem 'dotenv'
 
-gem 'otr-activerecord'
+gem 'nio4r', '2.5.8'
+
+gem 'otr-activerecord', '2.0.3'
 
 gem 'pagy'
 gem 'pagy_cursor'
-gem 'pg'
+gem 'pg', '1.2.3'
 gem 'puma', '5.5.2'
 
 gem 'rack', '2.2.3.1'
 
-gem 'rubocop', group: %i[development test]
-gem 'rubocop-performance', group: %i[development test]
+gem 'rubocop', '1.56.1', group: %i[development test]
+gem 'rubocop-performance', '1.7.1', group: %i[development test]
 
 gem 'sinatra', '2.0.8.1'
-gem 'slack-ruby-bot-server-events'
+gem 'slack-ruby-bot-server', '2.1.1'
+gem 'slack-ruby-bot-server-events', '0.3.2'
 gem 'slack-ruby-client'
 
 group :test do
