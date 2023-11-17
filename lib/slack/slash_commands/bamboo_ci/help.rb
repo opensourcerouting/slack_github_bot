@@ -48,6 +48,9 @@ module Slack
 		Enabled notification for PR 6 when it passes
 		Subscribed to status of all PRs by Github User mwinter-osr
 
+/ci running <github_name>
+	Returns all running PRs for a GitHub User
+
 /ci help
 	(i.e this)
 '

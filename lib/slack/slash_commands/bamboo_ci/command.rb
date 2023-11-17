@@ -31,6 +31,8 @@ module Slack
           subscribe
         when 'settings'
           settings
+        when 'running'
+          running
         when 'help'
           Slack::BambooCi::Help.text
         else
@@ -79,6 +81,19 @@ module Slack
           }
 
         request('/slack/settings', payload)
+      end
+
+      def running
+        return 'GitHub name must be fill' if @param.nil? or @param.empty?
+
+        payload =
+          {
+            event: 'running',
+            github_user: @param,
+            slack_user_id: @user_id
+          }
+
+        request('/slack', payload)
       end
 
       def request(url, payload)
