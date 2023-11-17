@@ -25,8 +25,8 @@ gem 'puma', '5.5.2'
 
 gem 'rack', '2.2.3.1'
 
-gem 'rubocop', '1.56.1', group: %i[development test]
-gem 'rubocop-performance', '1.7.1', group: %i[development test]
+gem 'rubocop', '1.56.1', group: %w[development test], require: false
+gem 'rubocop-performance', '1.7.1', group: %w[development test], require: false
 
 gem 'sinatra', '2.0.8.1'
 gem 'slack-ruby-bot-server', '2.1.1'
