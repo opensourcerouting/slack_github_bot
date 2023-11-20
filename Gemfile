@@ -32,12 +32,3 @@ gem 'sinatra', '2.0.8.1'
 gem 'slack-ruby-bot-server', '2.1.1'
 gem 'slack-ruby-bot-server-events', '0.3.2'
 gem 'slack-ruby-client'
-
-group :test do
-  gem 'factory_bot'
-  gem 'faker'
-  gem 'rack-test'
-  gem 'rspec'
-  gem 'simplecov', require: false
-  gem 'webmock', require: 'webmock/rspec'
-end
