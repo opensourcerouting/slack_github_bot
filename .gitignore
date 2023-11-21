@@ -57,3 +57,4 @@ build-iPhoneSimulator/
 
 .env
 config/postgresql.yml
+puma.pid
