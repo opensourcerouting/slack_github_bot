@@ -1,9 +1,9 @@
 [Unit]
-Description="CI Slack Bot DEVEL"
+Description="CI Slack Bot PRODUCTION"
 After=network.target
 
 [Service]
-User=slack_cibot_devel
+User=slack_cibot
 WorkingDirectory=/home/slack_cibot/slack_github_bot
 ExecStart=/home/slack_cibot/slack_github_bot/service/prod/server.sh
 Restart=always

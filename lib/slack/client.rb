@@ -24,7 +24,11 @@ class Client
   end
 
   def chat(message, channel: fetch_channel)
-    @client.chat_postMessage(channel: channel, text: message, username: fetch_bot_name)
+    @client.chat_postMessage(channel: channel,
+                             text: message,
+                             username: fetch_bot_name,
+                             unfurl_links: false,
+                             unfurl_media: false)
   rescue Slack::Web::Api::Errors::TooManyRequestsError
     sleep 60
     retry
