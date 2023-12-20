@@ -12,11 +12,12 @@ module Slack
   module BambooCi
     class Help
       TEXT = '
-/ci notify <pr> [all | errors | pass | off]
+/ci notify <pr> [all | errors | pass | stages | off]
 		<pr> is the PR number (or * for the off option)
 		all: All finished runs
 		errors: Just failed runs
 		pass: Just successful runs
+    stages: Just stages updates
 		off: Disable notifications
 	Notify on all CI runs (all) or just the CI runs with errors (errors) or only for
 	successful CI runs (pass)
@@ -26,11 +27,12 @@ module Slack
     	/ci notify 6 pass
     Returns a slack notification whenever the PR6 finishes running and passes all CI tests
 
-/ci subscribe <github_name> [all | errors | pass | off]
+/ci subscribe <github_name> [all | errors | pass | stages | off]
 		github_name is the Github Username
 		all: All finished runs
 		errors: Just failed runs
 		pass: Just successful runs
+    stages: Just stages updates
 		off: Disable notifications
 	Similar to notify, but for all CI runs for that specific Github User
 
