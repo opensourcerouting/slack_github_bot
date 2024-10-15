@@ -24,7 +24,7 @@ class Server < Sinatra::Base
 
     halt 404, 'User not found' unless user_info
 
-    halt 200, user_info.profile.display_name
+    halt 200, user_info
   end
 
   post '/comment' do
