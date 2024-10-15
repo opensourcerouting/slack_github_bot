@@ -20,13 +20,14 @@ class Client
       config.open_timeout = 60
     end
 
-    @client = Slack::Web::Client.new do |faraday|
-      faraday.ssl[:ca_file] = '/home/rnardi/.rvm/gems/ruby-3.3.1@slack_bot/gems/certified-1.0.0/ca-certificates.crt'
-    end
+    @client = Slack::Web::Client.new
   end
 
   def find_user_id_by_name(username)
-    user = @client.users_info(user: "@#{username}")
+    user = @client.users_list.members.find { |u| u.name == username || u.display_name == username }
+
+    puts user.inspect
+
     user ? user.id : nil
   end
 
