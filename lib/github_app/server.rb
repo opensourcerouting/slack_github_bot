@@ -19,6 +19,14 @@ class Server < Sinatra::Base
     halt 200
   end
 
+  get '/translate/:name' do
+    user_info = Client.new.find_user_id_by_name(params[:name])
+
+    halt 404, 'User not found' unless user_info
+
+    halt 200, user_info
+  end
+
   post '/comment' do
     halt 401, 'Invalid user / password' unless authentication
     Client.new.chat(request.body.read)

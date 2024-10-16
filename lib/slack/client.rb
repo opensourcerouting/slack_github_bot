@@ -23,6 +23,14 @@ class Client
     @client = Slack::Web::Client.new
   end
 
+  def find_user_id_by_name(username)
+    user = @client.users_list.members.find { |u| u.name == username || u.display_name == username }
+
+    puts user.inspect
+
+    user ? user.id : nil
+  end
+
   def chat(message, channel: fetch_channel)
     @client.chat_postMessage(channel: channel,
                              text: message,
