@@ -14,7 +14,7 @@ module Slack
   module BambooCi
     class Command
       COMMANDS = %w[notify subscribe settings].freeze
-      NOTIFY_OPTS = %w[all errors pass off].freeze
+      NOTIFY_OPTS = %w[all errors pass stages off].freeze
 
       include SlackBot::Request
       include Singleton
